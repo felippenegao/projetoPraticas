@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <filter>
+        <filter-name>FiltroLogin</filter-name>
+        <filter-class>br.edu.ifpb.filtros.FiltroLogin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroLogin</filter-name>
+        <url-pattern>/jsp/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Autenticacao</servlet-name>
         <servlet-class>br.edu.ifpb.servlets.Autenticacao</servlet-class>
@@ -8,6 +16,14 @@
         <servlet-name>CadastroAluno</servlet-name>
         <servlet-class>br.edu.ifpb.servlets.CadastroAluno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AutenticacaoServlet</servlet-name>
+        <servlet-class>br.edu.ifpb.servlet.AutenticacaoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AutAluno</servlet-name>
+        <servlet-class>br.edu.ifpb.servlets.AutAluno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticacao</servlet-name>
         <url-pattern>/Autenticacao</url-pattern>
@@ -15,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>CadastroAluno</servlet-name>
         <url-pattern>/CadastroAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AutenticacaoServlet</servlet-name>
+        <url-pattern>/AutenticacaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AutAluno</servlet-name>
+        <url-pattern>/AutAluno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,7 +5,6 @@
 package br.edu.ifpb.servlets;
 
 import br.edu.ifpb.Controle;
-import br.edu.ifpb.entidades.Aluno;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -18,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author carlos
  */
-public class CadastroAluno extends HttpServlet {
+public class AutAluno extends HttpServlet {
 
-    @EJB(name = "teste")
-    Controle controle;
+    @EJB(name = "aut")
+    Controle manager;
 
     /**
      * Processes requests for both HTTP
@@ -35,46 +34,17 @@ public class CadastroAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Aluno a = new Aluno();
 
-
-        a.setNome(request.getParameter("nome"));
-        a.setMatricula(request.getParameter("matricula"));
-        a.setEmail(request.getParameter("email"));
-        a.getEndereco().setBairro(request.getParameter("bairro"));
-        a.getEndereco().setRua(request.getParameter("rua"));
-        a.getEndereco().setCidade(request.getParameter("cidade"));
-        a.getEndereco().setEstado(request.getParameter("estado"));
-        a.getEndereco().setCep(request.getParameter("cep"));
-        a.setLogin(request.getParameter("login"));
-        a.setSenha(request.getParameter("senha"));
-
-        controle.cadastroAluno(a);
-
-
-
-
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One'>\n"
-                    + "        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400'>\n"
-                    + "        <link rel=\"stylesheet\" href=\"assets/css/reset.css\">\n"
-                    + "        <link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">");
-            out.println("<title>Servlet CadastroAluno</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cadastrado com Sucesso</h1>");
-            out.println("<a href=\"index.jsp\">Voltar");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+            manager.autentica(login, senha);
+            request.getSession().setAttribute("usuario", manager.getPessoa());
+            response.sendRedirect("jsp/cadastro.jsp");
+        } catch (Exception e) {
+            response.sendRedirect("index.jsp");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

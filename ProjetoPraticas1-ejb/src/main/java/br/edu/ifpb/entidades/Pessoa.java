@@ -26,6 +26,12 @@ public abstract class Pessoa implements Serializable {
     private String nome;
     @Column(name = "email")
     private String email;
+    @Column(name = "login")
+    private String login;
+    @Column(name = "senha")
+    private String senha;
+    
+    
 
     public Integer getId() {
         return id;
@@ -75,4 +81,22 @@ public abstract class Pessoa implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    
 }
