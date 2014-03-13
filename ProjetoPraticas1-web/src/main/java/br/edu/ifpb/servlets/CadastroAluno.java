@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CadastroAluno extends HttpServlet {
 
     @EJB(name = "teste")
-    Controle controle;
+    Controle<Aluno> controle;
 
     /**
      * Processes requests for both HTTP
@@ -49,7 +49,7 @@ public class CadastroAluno extends HttpServlet {
         a.setLogin(request.getParameter("login"));
         a.setSenha(request.getParameter("senha"));
 
-        controle.cadastroAluno(a);
+        controle.cadastrar(a);
 
 
 

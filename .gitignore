@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/ProjetoPraticas1-ejb/target/
+/ProjetoPraticas1-web/target/
+/ProjetoPraticas1-ear/target/

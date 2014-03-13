@@ -40,7 +40,7 @@ public class AutAluno extends HttpServlet {
             String senha = request.getParameter("senha");
             manager.autentica(login, senha);
             request.getSession().setAttribute("usuario", manager.getPessoa());
-            response.sendRedirect("jsp/cadastro.jsp");
+            response.sendRedirect("jsp/menu.xhtml");
         } catch (Exception e) {
             response.sendRedirect("index.jsp");
         }

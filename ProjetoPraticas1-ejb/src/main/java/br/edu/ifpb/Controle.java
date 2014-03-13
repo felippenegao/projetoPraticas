@@ -16,13 +16,13 @@ import javax.persistence.Query;
  * @author carlos
  */
 @Stateless
-public class Controle {
+public class Controle<T> {
     
     @PersistenceContext(unitName = "Praticas-PU")
     private EntityManager manager;
     private Pessoa pessoa;
     
-    public void cadastraPessoa(PessoaTeste p) {
+    public void cadastrar(T p) {
         
         manager.persist(p);
         
@@ -30,10 +30,6 @@ public class Controle {
 
     public Pessoa getPessoa() {
         return pessoa;
-    }
-    
-    public void cadastroAluno(Aluno a) {
-        manager.persist(a);
     }
     
     public void autentica(String login, String senha){
