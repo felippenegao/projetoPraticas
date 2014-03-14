@@ -34,8 +34,4 @@ public class PessoaTeste implements Serializable {
         this.nome = nome;
     }
     
-    
-    
-    
-    
 }

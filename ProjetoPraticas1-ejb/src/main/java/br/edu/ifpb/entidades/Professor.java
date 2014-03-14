@@ -3,30 +3,24 @@ package br.edu.ifpb.entidades;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Professor {
- @Id
- @GeneratedValue(strategy = GenerationType.SEQUENCE)
- private Integer id;
- @Column(nullable = false, unique = true, length = 30)   
- private String matricula;
- @Column(nullable = false, length = 80)   
- private String nome;
- @Column(nullable = false, length = 80)   
- private String cpf;
- @Column(nullable = false, length = 80)   
- private String telefone;
+@DiscriminatorValue("PROF")
+public class Professor extends Pessoa {
 
-    public Integer getId() {
-        return id;
+    @Column(nullable = false, length = 80)
+    private String cpf;
+    @Column(nullable = false, unique = true, length = 30)
+    private String matricula;
+    @Column(nullable = false, length = 80)   
+    private String telefone;
+
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getMatricula() {
@@ -37,22 +31,6 @@ public class Professor {
         this.matricula = matricula;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -60,4 +38,5 @@ public class Professor {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    
 }

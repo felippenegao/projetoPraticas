@@ -6,7 +6,6 @@ package br.edu.ifpb.servlets;
 
 import br.edu.ifpb.Controle;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

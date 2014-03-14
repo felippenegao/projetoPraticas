@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -11,23 +12,37 @@
 
             <p:panel header="Cadastro Professor">  
                 <h:panelGrid columns="2" cellpadding="5">  
-                    <h:outputText value="Nome: " />  
+                    <h:outputText value="nome" />  
                     <p:inputText value="#{professorBean.nome}"/>  
 
-                    <h:outputText value="Matricula: " />  
+                    <h:outputText value="matricula" />  
                     <p:inputText value="#{professorBean.matricula}" />  
-                    
-                    <h:outputText value="CPF: " />  
+
+                    <h:outputText value="cpf" />  
                     <p:inputMask value="#{professorBean.cpf}" mask="999.999.999-99"/>  
-                    
-                    <h:outputText value="Telefone: " />  
+
+                    <h:outputText value="telefone" />  
                     <p:inputMask value="#{professorBean.telefone}" mask="(99) 9999-9999"/>  
 
+                    <h:outputText value="email" />  
+                    <p:inputMask value="#{professorBean.email}" mask="" validator="validaEmail"/>  
+
                     <p:commandButton value="Reset" type="reset" />  
-                    <p:commandButton value="Submit" action="cadastroprofessor.xhtml" actionListener="#{professorBean.salvar()}" oncomplete="PF('dlg').show()"/>  
+                    <p:commandButton value="Submit" action="#{professorBean.salvar()}" oncomplete="PF('dlg').show()" ajax="false" />
 
                 </h:panelGrid>  
+
+                <h:panelGrid columns="2">
+                    Language : 
+                    <h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+                                     valueChangeListener="#{language.countryLocaleCodeChanged}">
+                        <f:selectItems value="#{language.countriesInMap}" /> 
+                    </h:selectOneMenu>
+                </h:panelGrid>
+
             </p:panel>  
+            
+            <p:messages showDetail="true" showSummary="true"/>
 
         </h:form> 
     </h:body>

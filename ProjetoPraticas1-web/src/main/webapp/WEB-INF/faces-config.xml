@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.1"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+
+<application>
+        <locale-config>
+            <default-locale>pt_BR</default-locale>
+            <supported-locale>pt_BR</supported-locale>
+            <supported-locale>en_US</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>bundles.language</base-name>
+            <var>msgs</var>
+        </resource-bundle>
+    </application>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-view-id>cadastroprofessor.xhtml</from-view-id>
+	<navigation-case>
+                <from-action>#{professorBean.salvar}</from-action>
+		<from-outcome>sucessoCadastro</from-outcome>
+		<to-view-id>menu.xhtml</to-view-id>
+	</navigation-case>
+        </navigation-case>
+    </navigation-rule>
+    
+</faces-config>

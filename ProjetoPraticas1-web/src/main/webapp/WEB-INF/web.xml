@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>CadastroAluno</servlet-name>
-        <servlet-class>br.edu.ifpb.servlets.CadastroAluno</servlet-class>
+        <servlet-class>br.edu.ifpb.dao.CadastroAluno</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AutenticacaoServlet</servlet-name>
@@ -53,6 +53,9 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>faces/cadastroprofessor.xhtml</welcome-file>
+    </welcome-file-list>
     <session-config>
         <session-timeout>
             30

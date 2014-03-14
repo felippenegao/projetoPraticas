@@ -5,27 +5,31 @@ import br.edu.ifpb.entidades.Professor;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import sun.misc.Request;
 
 /**
  *
  * @author carlos
  */
 @ManagedBean(name = "professorBean")
+@ViewScoped
 public class ProfessorBean {
+
     Professor professor = new Professor();
     private String matricula;
     private String nome;
     private String telefone;
     private String cpf;
+    private String email;
     
     @EJB
-    Controle<Professor> controle;
+    private Controle<Professor> controle;
 
-    public void salvar() throws IOException{
+    public String salvar() throws IOException {
         controle.cadastrar(professor);
         FacesContext.getCurrentInstance().getExternalContext().redirect("cadastroprofessor.xhtml");
+        return "sucessoCadastro";
     }
 
     public void setMatricula(String matricula) {
@@ -62,5 +66,14 @@ public class ProfessorBean {
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        professor.setEmail(telefone);
+        this.email = email;
     }
 }

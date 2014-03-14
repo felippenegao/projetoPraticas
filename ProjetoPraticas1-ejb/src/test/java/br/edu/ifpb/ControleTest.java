@@ -15,7 +15,7 @@ import org.junit.Test;
  */
 public class ControleTest extends TestCase {
 
-    @Test
+//    @Test
     public void testAlunoNome() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -30,7 +30,7 @@ public class ControleTest extends TestCase {
         assertEquals("Felippe", aluno.getNome());
     }
 
-    @Test
+//    @Test
     public void testAlunoEmail() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -45,7 +45,7 @@ public class ControleTest extends TestCase {
         assertEquals("felippe@gmail.com", aluno.getEmail());
     }
 
-    @Test
+//    @Test
     public void testAlunoMatricula() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -60,7 +60,7 @@ public class ControleTest extends TestCase {
         assertEquals("123456", aluno.getMatricula());
     }
 
-    @Test
+//    @Test
     public void testAlunoEnderecoRua() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -75,7 +75,7 @@ public class ControleTest extends TestCase {
         assertEquals("Rua A", endereco.getRua());
     }
 
-    @Test
+//    @Test
     public void testAlunoEnderecoBairro() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -90,7 +90,7 @@ public class ControleTest extends TestCase {
         assertEquals("Centro", endereco.getBairro());
     }
 
-    @Test
+//    @Test
     public void testAlunoTelefoneCodigo() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
@@ -105,7 +105,7 @@ public class ControleTest extends TestCase {
         assertEquals("83", telefone.getCodigoTelefone());
     }
 
-    @Test
+//    @Test
     public void testAlunoTelefoneNumero() {
         Aluno aluno = new Aluno();
         aluno.setEmail("felippe@gmail.com");
